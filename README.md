@@ -106,7 +106,7 @@ Enter your choice: 3
 
 Books in the library:
 Title: The Catcher in the Rye, Author: J.D. Salinger, ISBN: 9780316769488
-
+```
 ## Conclusion
 
 This project demonstrates basic concepts of object-oriented programming in C++, such as classes, encapsulation, constructors, and methods. It also shows how to manage collections using the C++ Standard Library (`std::vector`).
