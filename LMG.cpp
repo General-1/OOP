@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Class Book
 class Book {
 private:
     string title;
@@ -12,14 +11,11 @@ private:
     string isbn;
 
 public:
-    // Constructor
     Book(string title, string author, string isbn) {
         this->title = title;
         this->author = author;
         this->isbn = isbn;
     }
-
-    // Getters
     string get_title() const {
         return title;
     }
@@ -31,25 +27,19 @@ public:
     string get_isbn() const {
         return isbn;
     }
-
-    // Method to display book information (marked as const)
     void display_book() const {
         cout << "Title: " << title << ", Author: " << author << ", ISBN: " << isbn << endl;
     }
 };
 
-// Class Library
 class Library {
 private:
     vector<Book> books;
 
 public:
-    // Method to add a book
     void add_book(Book book) {
         books.push_back(book);
     }
-
-    // Method to remove a book by ISBN
     void remove_book(string isbn) {
         for (auto it = books.begin(); it != books.end(); ++it) {
             if (it->get_isbn() == isbn) {
@@ -61,19 +51,17 @@ public:
         cout << "Book with ISBN " << isbn << " not found." << endl;
     }
 
-    // Method to display all books
     void display_books() const {
         if (books.empty()) {
             cout << "The library is empty." << endl;
         } else {
             for (const auto& book : books) {
-                book.display_book();  // No more error here
+                book.display_book(); 
             }
         }
     }
 };
 
-// Main function
 int main() {
     Library library;
     int choice;
@@ -87,12 +75,11 @@ int main() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        cin.ignore();  // Clear the buffer
+        cin.ignore();
 
         if (choice == 1) {
             string title, author, isbn;
 
-            // Get book details from the user
             cout << "Enter book title: ";
             getline(cin, title);
             cout << "Enter book author: ";
@@ -100,22 +87,19 @@ int main() {
             cout << "Enter book ISBN: ";
             getline(cin, isbn);
 
-            // Add the book to the library
             library.add_book(Book(title, author, isbn));
             cout << "Book added successfully!" << endl;
 
         } else if (choice == 2) {
             string isbn;
 
-            // Get ISBN of the book to remove
             cout << "Enter the ISBN of the book to remove: ";
             getline(cin, isbn);
 
-            // Remove the book from the library
             library.remove_book(isbn);
 
         } else if (choice == 3) {
-            // Display all books
+
             cout << "\nBooks in the library:" << endl;
             library.display_books();
         }
